@@ -18,9 +18,9 @@ const Homepage = (props: any) => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <div className="hp-container">
+                <div className="justify-center">
                     <div>
-                        <h1>Enter a city name to view the weather: </h1>
+                        <h1 className="text-red-800">Enter a city name to view the weather: </h1>
                     </div>
                     <div>
                         <div>
