@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
-export interface IHomePage {}
 
-const Homepage: React.FunctionComponent<IHomePage> = () => {
+const Homepage = (props: any) => {
+
+    const submitCity = () => {
+        props.getCityInfo();
+    }
 
     return (
         <>
