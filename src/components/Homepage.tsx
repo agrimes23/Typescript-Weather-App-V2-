@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
-export interface IHomePageProps {}
+export interface IHomePage {}
 
-const Homepage: React.FunctionComponent<IHomePageProps> = (props) => {
+const Homepage: React.FunctionComponent<IHomePage> = () => {
 
     return (
-        <div>
+        <>
             <p>Hellooo</p>
-        </div>
+        </>
     )
-
 }
 
 export default Homepage;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 
-import Homepage from './components/Homepage.tsx'
+import Homepage from './components/Homepage'
 
 function App() {
 
