@@ -8,11 +8,17 @@ const Homepage = (props: any) => {
     const navigate = useNavigate()
 
     const handleChange = (e: any) => {
-        
+        setCitySearch(e.target.value)
     }
 
-    const handleSubmit = () => {
-        props.getCityInfo();
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
+        if (citySearch === "") {
+            alert("Please enter a city!")
+        } else {
+            props.getCityInfo(citySearch)
+            navigate('/cityweather')
+        }
     }
 
     return (
