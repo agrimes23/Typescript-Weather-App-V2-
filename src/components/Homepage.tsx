@@ -20,7 +20,7 @@ const Homepage = (props: any) => {
             <form onSubmit={handleSubmit}>
                 <div className="justify-center">
                     <div>
-                        <h1 className="text-red-800">Enter a city name to view the weather: </h1>
+                        <h1 className="text-red-800 text-2xl">Enter a city name to view the weather: </h1>
                     </div>
                     <div>
                         <div>
@@ -28,7 +28,7 @@ const Homepage = (props: any) => {
                             <input type="text" className="" placeholder='Search City' name="city" onChange={handleChange}/>
                         </div>
                         <div>
-                            <input type="submit" className="" value="Get Weather Info"/>
+                            <input type="submit" className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded" value="Get Weather Info"/>
                         </div>
                     </div>
                 </div>
