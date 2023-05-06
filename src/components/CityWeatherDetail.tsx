@@ -10,6 +10,11 @@ const CityWeatherDetail = (props: any) => {
         navigate("/")
     }
 
+
+    useEffect(() => {
+
+    }, [props.weatherAPI])
+
     return (
         <>
             <div className="mt-80 text-center">
@@ -17,20 +22,20 @@ const CityWeatherDetail = (props: any) => {
                 <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded m-20" onClick={handleClick}>Back to Home</button>
             </div>
             <div className="text-center">
-                <div className="">
+                <div className="text-bold">
                     <h5 className=''>Max Temp: </h5>
                     <h5>{props.weatherAPI.main ? props.weatherAPI.main.temp_max : null} °F</h5>
                 </div>
                 <div className="">
-                    <h5 className="">Min Temp:</h5>
+                    <h5 className="text-bold">Min Temp:</h5>
                     <h5 className="">{props.weatherAPI.main ? props.weatherAPI.main.temp_min : null} °F</h5>
                 </div>
                 <div className="">
-                    <h5 className='text-red'>Humidity: </h5>
+                    <h5 className='text-red text-bold'>Humidity: </h5>
                     <h5>{props.weatherAPI.main ? props.weatherAPI.main.humidity : null}%</h5>
                 </div>
                 <div className="">
-                    <h5 className='text-blue'>Visibility: </h5>
+                    <h5 className='text-blue text-bold'>Visibility: </h5>
                     <h5>{props.weatherAPI.main ? props.weatherAPI.visibility : null} km</h5>
                 </div>
             </div>
