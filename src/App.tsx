@@ -7,7 +7,11 @@ import Homepage from './components/Homepage'
 import CityWeatherDetail from './components/CityWeatherDetail'
 
 // TODO: find background photos
-// TODO: display background photo based on data.weather.main, and data.
+// TODO: display background photo based on data.weather.main, and local time
+  // dawn gradient (#1c3c6c + #337882 + #d7aa94)
+  // daytime gradient
+  // dusk/evening gradient (#FDCD83, #FD9367, #F0445E, #C3305D, #782D65, #432967)
+  // nighttime gradient
 
 function App() {
 

@@ -15,7 +15,7 @@ const CityWeatherDetail = (props: any) => {
     }
 
     const getRiseTime = () => {
-        const date = new Date(( (props.weatherAPI.sys.sunrise ? props.weatherAPI.sys.sunrise : null) * 1000  + ((props.weatherAPI.timezone ? props.weatherAPI.timezone : null) * 1000 )) ).toUTCString()
+        const date = new Date(( (props.weatherAPI.sys ? props.weatherAPI.sys.sunrise : null) * 1000  + ((props.weatherAPI.timezone ? props.weatherAPI.timezone : null) * 1000 )) ).toUTCString()
         
         setSunriseTime(`${date.split(" ")[4]} ${ +date.split(" ")[4].split(":")[0] > 12 ? "PM" : "AM" }`)
     }
@@ -30,11 +30,18 @@ const CityWeatherDetail = (props: any) => {
     useEffect(() => {
         getRiseTime()
         getSetTime()
+        console.log(props.weatherAPI)
+        if((props.weatherAPI.weather ? props.weatherAPI.weather[0].main : null )=== "Clouds") {
+            console.log("Clouds")
+        } else if( (props.weatherAPI.weather ? props.weatherAPI.weather[0].main : null )=== "Rain" ) {
+            console.log("Rain")
+        }
 
     }, [props.weatherAPI])
 
     return (
         <>
+        <div className="">
             <div className="mt-80 text-center">
                 <h1 className="font-bold text-3xl">Submitted successfully!</h1>
                 <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded m-20" onClick={handleClick}>Back to Home</button>
@@ -68,6 +75,7 @@ const CityWeatherDetail = (props: any) => {
                     <h5 className='text-blue font-bold'>Sunset: </h5>
                     <h5>{sunsetTime}</h5>
                 </div>
+            </div>
             </div>
         </>
     )
