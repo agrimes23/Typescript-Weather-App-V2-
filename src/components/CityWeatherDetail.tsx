@@ -15,12 +15,13 @@ const CityWeatherDetail = (props: any) => {
     }
 
     const getRiseTime = () => {
-        const date = new Date(( (props.weatherAPI.sys ? props.weatherAPI.sys.sunrise : null) * 1000  + ((props.weatherAPI.timezone ? props.weatherAPI.timezone : null) * 1000 )) ).toUTCString()
+        const date = new Date(( props.weatherAPI.sys.sunrise*1000  + (props.weatherAPI.timezone * 1000 )) ).toUTCString()
+        
         setSunriseTime(`${date.split(" ")[4]} ${ +date.split(" ")[4].split(":")[0] > 12 ? "PM" : "AM" }`)
     }
 
     const getSetTime = () => {
-        const date = new Date( (props.weatherAPI.sys ? props.weatherAPI.sys.sunset : null) * 1000  + ((props.weatherAPI.timezone ? props.weatherAPI.timezone : null)*1000)).toUTCString()
+        const date = new Date( props.weatherAPI.sys.sunset * 1000  + (props.weatherAPI.timezone*1000)).toUTCString()
 
         setSunsetTime(`${date.split(" ")[4]} ${ +date.split(" ")[4].split(":")[0] > 12 ? "PM" : "AM" }`)
     }
@@ -39,8 +40,8 @@ const CityWeatherDetail = (props: any) => {
                 <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded m-20" onClick={handleClick}>Back to Home</button>
             </div>
             <div className="text-center">
-                <div className="">
-                    <h5 className='font-bold'>Max Temp: </h5>
+                <div className="font-bold">
+                    <h5 className=''>Max Temp: </h5>
                     <h5>{props.weatherAPI.main ? props.weatherAPI.main.temp_max : null} °F</h5>
                 </div>
                 <div className="">
