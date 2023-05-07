@@ -6,6 +6,9 @@ import axios from 'axios'
 import Homepage from './components/Homepage'
 import CityWeatherDetail from './components/CityWeatherDetail'
 
+// TODO: find background photos
+// TODO: display background photo based on data.weather.main, and data.
+
 function App() {
 
   const [weatherAPI, setWeatherAPI] = useState([{}])
