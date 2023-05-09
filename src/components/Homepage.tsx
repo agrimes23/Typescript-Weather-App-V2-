@@ -25,9 +25,10 @@ const Homepage = (props: any) => {
         <>
             <div className="bg-main-page w-screen h-screen">
                 <form onSubmit={handleSubmit}>
-                    <div className="flex-1 m-auto mt-20 w-6/12">
+                    <div className="bg-black opacity-70 flex-1 m-auto mt-20 w-6/12">
+                        <div className=""></div>
                         <div className="text-left p-5">
-                            <h1 className=" text-red-500 text-3xl font-bold">Enter a city name to view the weather: </h1>
+                            <h1 className=" text-white-500 opacity-100 text-3xl font-bold">Enter a city name to view the weather: </h1>
                         </div>
                         <div className="">
                             <div className="">
