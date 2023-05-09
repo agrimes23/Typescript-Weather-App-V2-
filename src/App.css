@@ -16,6 +16,12 @@ body, #root {
 
 }
 
-.bg-details-page {
+.bg-cloudy-day {
+    background-image: url("./img/cloudy_day_weather.jpg");
+    background-size: cover;
+}
 
+.bg-rainy-day {
+    background-image: url("./img/rainy_day_weather.jpg");
+    background-size: cover;
 }

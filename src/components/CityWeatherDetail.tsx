@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
+// TODO: display background photo based on data.weather.main, and local time (dt)
+
+
 const CityWeatherDetail = (props: any) => {
 
     const [sunriseTime, setSunriseTime] = useState("")
     const [sunsetTime, setSunsetTime] = useState("")
     const [dtTime, setDtTime] = useState("")
-    const [bgSetting, setBGSetting] = useState("")
+    const [bgSetting, setBGSetting] = useState('bg-main-page')
 
     const navigate = useNavigate();
 
@@ -16,7 +19,12 @@ const CityWeatherDetail = (props: any) => {
     }
 
     const bgWeather = () => {
-        
+
+        if ((props.weatherAPI.weather ? props.weatherAPI.weather[0].main : null) === "Rain") {
+            setBGSetting('bg-rainy-day')
+        } else if ((props.weatherAPI.weather ? props.weatherAPI.weather[0].main : null) === "Clouds") {
+            setBGSetting('bg-cloudy-day')
+        }
     }
 
     const getRiseTime = () => {
@@ -35,18 +43,21 @@ const CityWeatherDetail = (props: any) => {
     useEffect(() => {
         getRiseTime()
         getSetTime()
+        bgWeather()
         console.log(props.weatherAPI)
-        if((props.weatherAPI.weather ? props.weatherAPI.weather[0].main : null )=== "Clouds") {
-            console.log("Clouds")
-        } else if( (props.weatherAPI.weather ? props.weatherAPI.weather[0].main : null )=== "Rain" ) {
-            console.log("Rain")
-        }
 
-    }, [props.weatherAPI])
+        // if((props.weatherAPI.weather ? props.weatherAPI.weather[0].main : null )=== "Clouds") {
+        //     console.log("Clouds")
+        // } else if( (props.weatherAPI.weather ? props.weatherAPI.weather[0].main : null )=== "Rain" ) {
+        //     console.log("Rain")
+        // }
+
+    }, [props.weatherAPI, bgSetting])
 
     return (
         <>
-        <div className="">
+        <div className={bgSetting}>
+        <div id="#1" className="w-screen h-screen">
             <div className="mt-80 text-center">
                 <h1 className="font-bold text-3xl">Submitted successfully!</h1>
                 <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded m-20" onClick={handleClick}>Back to Home</button>
@@ -80,6 +91,7 @@ const CityWeatherDetail = (props: any) => {
                     <h5 className='text-blue font-bold'>Sunset: </h5>
                     <h5>{sunsetTime}</h5>
                 </div>
+            </div>
             </div>
             </div>
         </>
