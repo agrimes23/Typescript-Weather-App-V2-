@@ -30,12 +30,10 @@ function App() {
   })
   
   return (
-    <div>
       <Routes>
         <Route path='/' element={<Homepage getCityInfo={getCityInfo} />} />
         <Route path='/cityweather' element={<CityWeatherDetail weatherAPI={weatherAPI} />} />
       </Routes>
-    </div>
   );
 }
 

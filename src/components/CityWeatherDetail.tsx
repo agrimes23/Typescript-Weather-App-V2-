@@ -7,11 +7,16 @@ const CityWeatherDetail = (props: any) => {
     const [sunriseTime, setSunriseTime] = useState("")
     const [sunsetTime, setSunsetTime] = useState("")
     const [dtTime, setDtTime] = useState("")
+    const [bgSetting, setBGSetting] = useState("")
 
     const navigate = useNavigate();
 
     const handleClick = () => {
         navigate("/")
+    }
+
+    const bgWeather = () => {
+        
     }
 
     const getRiseTime = () => {
