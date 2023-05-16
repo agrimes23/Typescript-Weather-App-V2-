@@ -66,8 +66,7 @@ const CityWeatherDetail = (props: any) => {
                                 <h1 className="opacity-100 text-left font-bold text-4xl">{props.weatherAPI.name ? props.weatherAPI.name : null}</h1>
                                 <img className="" src={`http://openweathermap.org/img/wn/${props.weatherAPI.weather ? props.weatherAPI.weather[0].icon : null}@2x.png`}/>
                             </div>
-                            <div className="flex items-center justify-around px-10 pt-4">
-                                
+                            <div className="flex items-center justify-around px-10 pt-4"> 
                                 <h3 className="w-fit text-2xl">{localTime} </h3>
                             </div>
                             
