@@ -9,7 +9,7 @@ const CityWeatherDetail = (props: any) => {
 
     const [sunriseTime, setSunriseTime] = useState("")
     const [sunsetTime, setSunsetTime] = useState("")
-    const [dtTime, setDtTime] = useState("")
+    const [localTime, setLocalTime] = useState("")
     const [bgSetting, setBGSetting] = useState('bg-main-page')
 
     const navigate = useNavigate();
@@ -39,12 +39,20 @@ const CityWeatherDetail = (props: any) => {
         setSunsetTime(`${date.split(" ")[4]} ${ + date.split(" ")[4].split(":")[0] > 12 ? "PM" : "AM" }`)
     }
 
+    const getLocalTime = () => {
+        const date = new Date( (props.weatherAPI ? props.weatherAPI.dt : null) * 1000  + ((props.weatherAPI.timezone ? props.weatherAPI.timezone : null) *1000)).toUTCString().split("GMT")
+        
+
+        setLocalTime(date[0])
+    }
+
 
     useEffect(() => {
         getRiseTime()
         getSetTime()
         bgWeather()
-        // console.log(props.weatherAPI)
+        getLocalTime()
+        console.log(props.weatherAPI)
 
     }, [props.weatherAPI, bgSetting])
 
@@ -53,17 +61,17 @@ const CityWeatherDetail = (props: any) => {
             <div className={bgSetting}>
                 <div className="w-screen">
                     <div className="mt-40 text-center">
-                        <div className="white-opaque-bg rounded mx-40 p-10">
-                            <div className="opacity-100">
-                                <h1 className="opacity-100 font-bold text-3xl">{props.weatherAPI.name ? props.weatherAPI.name : null}</h1>
+                        <div className="white-opaque-bg flex-row rounded mx-40 pt-10">
+                            <div className="flex justify-evenly items-center ">
+                                <h1 className="opacity-100 text-left font-bold text-4xl">{props.weatherAPI.name ? props.weatherAPI.name : null}</h1>
+                                <img className="" src={`http://openweathermap.org/img/wn/${props.weatherAPI.weather ? props.weatherAPI.weather[0].icon : null}@2x.png`}/>
                             </div>
-                            <div>
-
-                                <img className="opacity-100 m-auto" src={`http://openweathermap.org/img/wn/${props.weatherAPI.weather ? props.weatherAPI.weather[0].icon : null}@2x.png`}/>
+                            <div className="flex items-center justify-around px-10 pt-4">
+                                
+                                <h3 className="w-fit text-2xl">{localTime} </h3>
                             </div>
                             
                         </div>
-                        <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded m-10" onClick={handleClick}>Back to Home</button>
                     </div>
                     <div className="text-center white-opaque-bg rounded mx-40 p-10">
                         <div className="">
@@ -95,6 +103,7 @@ const CityWeatherDetail = (props: any) => {
                             <h5>{sunsetTime}</h5>
                         </div>
                     </div>
+                    <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 flex items-center mx-auto mt-10 rounded" onClick={handleClick}>Back to Home ➜</button>
                 </div>
             </div>
         </>
