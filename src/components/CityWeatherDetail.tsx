@@ -53,7 +53,7 @@ const CityWeatherDetail = (props: any) => {
             <div className={bgSetting}>
                 <div className="w-screen">
                     <div className="mt-40 text-center">
-                        <div className=" bg-white opacity-40 mx-40 p-10">
+                        <div className="white-opaque-bg rounded mx-40 p-10">
                             <div className="opacity-100">
                                 <h1 className="opacity-100 font-bold text-3xl">{props.weatherAPI.name ? props.weatherAPI.name : null}</h1>
                             </div>
@@ -65,7 +65,7 @@ const CityWeatherDetail = (props: any) => {
                         </div>
                         <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded m-10" onClick={handleClick}>Back to Home</button>
                     </div>
-                    <div className="text-center opacity-40 bg-white mx-40 p-10">
+                    <div className="text-center white-opaque-bg rounded mx-40 p-10">
                         <div className="">
                             <h5 className='font-bold'>Max Temp: </h5>
                             <h5>{props.weatherAPI.main ? props.weatherAPI.main.temp_max : null} °F</h5>

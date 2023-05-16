@@ -11,15 +11,20 @@ body, #root {
     align-items: center;
 }
 
-.hp-text {
-    opacity: 100%;
-    z-index: 1;
+.black-opaque-bg{
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.white-opaque-bg{
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .bg-main-page {
     background-image: url("./img/main_page_weather.jpg");
 
 }
+
+/* ------------ Details Page ------------ */
 
 .bg-cloudy-day {
     background-image: url("./img/cloudy_day_weather.jpg");
