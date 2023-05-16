@@ -51,15 +51,21 @@ const CityWeatherDetail = (props: any) => {
     return (
         <>
             <div className={bgSetting}>
-                <div id="#1" className="w-screen h-screen">
-                    <div className="mt-80 text-center">
-                        <div className=" bg-white opacity-40 mx-80 p-10">
-                            <h1 className="opacity-100 font-bold text-3xl">{props.weatherAPI.name ? props.weatherAPI.name : null}</h1>
-                            <img className="opacity-100 m-auto" src={`http://openweathermap.org/img/wn/${props.weatherAPI.weather ? props.weatherAPI.weather[0].icon : null}@2x.png`}/>
+                <div className="w-screen">
+                    <div className="mt-40 text-center">
+                        <div className=" bg-white opacity-40 mx-40 p-10">
+                            <div className="opacity-100">
+                                <h1 className="opacity-100 font-bold text-3xl">{props.weatherAPI.name ? props.weatherAPI.name : null}</h1>
+                            </div>
+                            <div>
+
+                                <img className="opacity-100 m-auto" src={`http://openweathermap.org/img/wn/${props.weatherAPI.weather ? props.weatherAPI.weather[0].icon : null}@2x.png`}/>
+                            </div>
+                            
                         </div>
-                        <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded m-20" onClick={handleClick}>Back to Home</button>
+                        <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded m-10" onClick={handleClick}>Back to Home</button>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center opacity-40 bg-white mx-40 p-10">
                         <div className="">
                             <h5 className='font-bold'>Max Temp: </h5>
                             <h5>{props.weatherAPI.main ? props.weatherAPI.main.temp_max : null} °F</h5>
