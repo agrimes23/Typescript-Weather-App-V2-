@@ -12,8 +12,8 @@ function App() {
   const [weatherAPI, setWeatherAPI] = useState([{}])
 
  
-  const getCityInfo = (cityName: string) => {
-    axios.get('http://localhost:5000/api/weather/' + cityName)
+  const getCityInfo = async (cityName: string) => {
+    await axios.get('http://localhost:5000/api/weather/' + cityName)
     .then((res) => setWeatherAPI(res.data),
     (err) => console.log(err)
     )

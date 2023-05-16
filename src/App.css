@@ -11,6 +11,11 @@ body, #root {
     align-items: center;
 }
 
+.hp-text {
+    opacity: 100%;
+    z-index: 1;
+}
+
 .bg-main-page {
     background-image: url("./img/main_page_weather.jpg");
 

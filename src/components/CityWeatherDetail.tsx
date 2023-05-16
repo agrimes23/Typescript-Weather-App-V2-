@@ -44,55 +44,52 @@ const CityWeatherDetail = (props: any) => {
         getRiseTime()
         getSetTime()
         bgWeather()
-        console.log(props.weatherAPI)
-
-        // if((props.weatherAPI.weather ? props.weatherAPI.weather[0].main : null )=== "Clouds") {
-        //     console.log("Clouds")
-        // } else if( (props.weatherAPI.weather ? props.weatherAPI.weather[0].main : null )=== "Rain" ) {
-        //     console.log("Rain")
-        // }
+        // console.log(props.weatherAPI)
 
     }, [props.weatherAPI, bgSetting])
 
     return (
         <>
-        <div className={bgSetting}>
-        <div id="#1" className="w-screen h-screen">
-            <div className="mt-80 text-center">
-                <h1 className="font-bold text-3xl">Submitted successfully!</h1>
-                <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded m-20" onClick={handleClick}>Back to Home</button>
-            </div>
-            <div className="text-center">
-                <div className="">
-                    <h5 className='font-bold'>Max Temp: </h5>
-                    <h5>{props.weatherAPI.main ? props.weatherAPI.main.temp_max : null} °F</h5>
+            <div className={bgSetting}>
+                <div id="#1" className="w-screen h-screen">
+                    <div className="mt-80 text-center">
+                        <div className=" bg-white opacity-40 mx-80 p-10">
+                            <h1 className="opacity-100 font-bold text-3xl">{props.weatherAPI.name ? props.weatherAPI.name : null}</h1>
+                            <img className="opacity-100 m-auto" src={`http://openweathermap.org/img/wn/${props.weatherAPI.weather ? props.weatherAPI.weather[0].icon : null}@2x.png`}/>
+                        </div>
+                        <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded m-20" onClick={handleClick}>Back to Home</button>
+                    </div>
+                    <div className="text-center">
+                        <div className="">
+                            <h5 className='font-bold'>Max Temp: </h5>
+                            <h5>{props.weatherAPI.main ? props.weatherAPI.main.temp_max : null} °F</h5>
+                        </div>
+                        <div className="">
+                            <h5 className="font-bold">Min Temp:</h5>
+                            <h5 className="">{props.weatherAPI.main ? props.weatherAPI.main.temp_min : null} °F</h5>
+                        </div>
+                        <div className="">
+                            <h5 className='text-red font-bold'>Humidity: </h5>
+                            <h5>{props.weatherAPI.main ? props.weatherAPI.main.humidity : null}%</h5>
+                        </div>
+                        <div className="">
+                            <h5 className='text-blue font-bold'>Visibility: </h5>
+                            <h5>{props.weatherAPI.main ? props.weatherAPI.visibility : null} km</h5>
+                        </div>
+                        <div>
+                            <h5 className=''></h5>
+                            <h5></h5>
+                        </div>
+                        <div>
+                            <h5 className='font-bold'>Sunrise: </h5>
+                            <h5>{sunriseTime}</h5>
+                        </div>
+                        <div className="">
+                            <h5 className='text-blue font-bold'>Sunset: </h5>
+                            <h5>{sunsetTime}</h5>
+                        </div>
+                    </div>
                 </div>
-                <div className="">
-                    <h5 className="font-bold">Min Temp:</h5>
-                    <h5 className="">{props.weatherAPI.main ? props.weatherAPI.main.temp_min : null} °F</h5>
-                </div>
-                <div className="">
-                    <h5 className='text-red font-bold'>Humidity: </h5>
-                    <h5>{props.weatherAPI.main ? props.weatherAPI.main.humidity : null}%</h5>
-                </div>
-                <div className="">
-                    <h5 className='text-blue font-bold'>Visibility: </h5>
-                    <h5>{props.weatherAPI.main ? props.weatherAPI.visibility : null} km</h5>
-                </div>
-                <div>
-                    <h5 className=''></h5>
-                    <h5></h5>
-                </div>
-                <div>
-                    <h5 className='font-bold'>Sunrise: </h5>
-                    <h5>{sunriseTime}</h5>
-                </div>
-                <div className="">
-                    <h5 className='text-blue font-bold'>Sunset: </h5>
-                    <h5>{sunsetTime}</h5>
-                </div>
-            </div>
-            </div>
             </div>
         </>
     )
